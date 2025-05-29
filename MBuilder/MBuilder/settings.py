@@ -30,7 +30,10 @@ SECRET_KEY = "django-insecure--^(5!h=6095z00at5-ao!3*klr8krpn&*gbf14)es-pws%icuq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["colab.research.google.com"]
+ALLOWED_HOSTS = [
+    "colab.research.google.com",
+    "gpu-t4-s-3tptkd94xgram.us-east1-c.c.codatalab-user-runtimes.internal",
+]
 
 
 # Application definition
