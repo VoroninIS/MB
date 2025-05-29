@@ -1,0 +1,64 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+Main page
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'registration/css/profile.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="cropper-background" id="cropper-background" style="display: none;">
+    <div id="cropperContainer">
+        <img id="cropperImage" src="" alt="">
+    </div>
+</div>
+
+<div class="content">
+    <div class="left-part">
+        <form class="profile" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="avatar-block">
+                <img src="{{ user.avatar.url }}" alt="Аватар" class="avatar" id="avatarPreview">
+                <input type="file" name="avatar" id="fileUpload" hidden accept=".jpg,.png">
+                <label for="fileUpload" class="icon-button">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.5084 11.6159L11.6779 14.4464C11.5574 14.5669 11.3621 14.5669 11.2416 14.4464L2.46833 5.67316C2.43204 5.63687 2.40537 5.5921 2.39075 5.54291L1.19323 1.5149C1.1234 1.28001 1.34205 1.06136 1.57693 1.13119L5.60494 2.32871C5.65414 2.34334 5.69891 2.37 5.7352 2.40629L14.5084 11.1795C14.6289 11.3 14.6289 11.4954 14.5084 11.6159Z" 
+                            fill="black" 
+                            stroke="black" 
+                            stroke-width="1.38602" 
+                            stroke-linejoin="round"/>
+                    </svg>
+                </label>
+            </div>
+            <button type="submit" class="btn-link" id="save-button" style="display: none;">Save changes</button>
+        </form>
+        <div class="profile-info-block">
+            <h2 class="name">{% if user.first_name %}{{ user.first_name }}{% else %}{{ '////' }}{% endif %}</h2>
+            <p class="email">{{ user.email }}</p>
+            <form class="logout-form" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="logout btn-link">↵ Log out</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="right-part">
+        <h2 class="plan-block-title">Plans & Billing</h2>
+        <div class="plan-icon">
+            Free
+        </div>
+        <h1 class="plan-features-title">Free plan features</h1>
+        <p>10 generation per day</p>
+        <p>Basic generation speed</p>
+        <a class="upgrate-btn btn-link" href="/price">Upgrate plan →</a>
+    </div>
+</div>
+
+<script src="{% static 'main/js/avatar-loader.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+{% endblock %}

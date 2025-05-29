@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'main/img/icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'main/img/icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'main/img/icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'main/img/icons/site.webmanifest' %}">
+    <link rel="stylesheet" href="{% static 'main/css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'registration/css/signup.css' %}">
+</head>
+<body>
+    <div class="cursor" style="display: none;"></div>
+    <div class="cursor2" style="display: none;"></div>
+
+    <div class="container">
+        <div class="signup-container">
+            <div class="left-part">
+                <h3 class="page-title">Sign up</h3>
+                <form class="signup-form" method="post">
+                    {% csrf_token %}
+                    <div class="name-block">
+                        <h1>Name</h1>
+                        <input type="text" name="first_name" class="name-field" placeholder="Enter your name" blank='False' null='False' help_text="This field is required.">
+                        <p class="error-fied">
+                            {% if form.first_name.errors %}
+                                {% for error in form.first_name.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            {% endif %}
+                        </p>
+                    </div> 
+                    <div class="email-block">
+                        <h1>Email</h1>
+                        <input type="email" name="email" class="email-field" placeholder="example@example.com" blank='False' null='False' help_text="This field is required.">
+                        <p class="error-fied">
+                            {% if form.email.errors %}
+                                {% for error in form.email.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="password-block">
+                        <h1>Password</h1>
+                        <input type="password" name="password1" class="password-field" placeholder="Create password" blank='False' null='False' help_text="This field is required.">
+                        <p class="error-fied">
+                            {% if form.password1.errors %}
+                                {% for error in form.password1.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="repeat-password-block">
+                        <h1>Enter password again</h1>
+                        <input type="password" name="password2" class="password-field" placeholder="Repeat password" blank=False, null=False, help_text="This field is required.">
+                        <p class="error-fied">
+                            {% if form.password2.errors %}
+                                {% for error in form.password2.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="buttons-block">
+                        <button type="submit" class="btn">Sign up</button>
+                        <a class="btn-link login" href="{% url 'login' %}">Log in</a>
+                        <a class="btn-link help">Need help?</a>
+                    </div>
+                </form>            
+            </div>
+            <div class="right-part">
+                <a href="/">
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1.41406" y="3.05176e-05" width="45" height="2" transform="rotate(45 1.41406 3.05176e-05)" fill="black"/>
+                        <rect x="33.2339" y="1.41422" width="45" height="2" transform="rotate(135 33.2339 1.41422)" fill="black"/>
+                    </svg>
+                </a>
+                <video class="rect-anim" muted loop autoplay>
+                    <source src="{% static 'main/video/Futer_an.mp4' %}"></source>
+                </video>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'main/js/jquery-3.7.1.js' %}"></script>
+    <script src="{% static 'main/js/animation.js' %}"></script>
+    <script src="{% static 'main/js/ajax-form.js' %}"></script>
+</body>
+</html>

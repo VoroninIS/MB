@@ -1,0 +1,98 @@
+.container {
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.signup-container {
+    max-width: 1530px;
+    width: 100%;
+    padding: 100px 0;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-part {
+    max-width: 755px;
+}
+
+.name-block {
+    margin-top: 100px;
+}
+
+.email-block {
+    margin-top: 70px;
+}
+
+.error-fied {
+    margin-top: 10px;
+    margin-bottom: -29px;
+    color: rgb(255, 0, 0);
+}
+
+.password-block {
+    margin-top: 70px;
+}
+
+.repeat-password-block {
+    margin-top: 70px;
+}
+
+.login {
+    margin-left: 50px;
+}
+
+.help {
+    margin-left: 50px;
+}
+
+.buttons-block {
+    margin-top: 70px;
+
+    display: flex;
+    align-items: center;
+}
+
+.right-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #B5AFAF;
+    transition: 0.5s;
+}
+
+input:focus::placeholder {
+    color: rgba(0, 0, 0, 0);
+}
+
+input:focus,
+input:active {
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.rect-anim {
+    width: 290px;
+    height: 290px;
+}

@@ -1,0 +1,128 @@
+.form-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+    height: 100vh;
+}
+
+.generate-button-container {
+    justify-items: center;
+}
+
+.generate-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    width: 228px;
+}
+
+.round-button {
+    height: 135px;
+    width: 135px;
+    border-radius: 100px;
+    margin-right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #77E22B;
+
+    transition: transform .1s linear;
+    transition: background-color 0.2s ease-in;
+}
+
+.round-button:hover {
+    background-color: #2ecf12;
+}
+
+.generate-icon {
+    width: 33px;
+    height: 45px;
+    margin-right: -4px;
+
+    transition: transform .1s linear;
+}
+
+.prompt-field {
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+
+    width: 100%;
+    max-width: 910px;
+    padding: 10px;
+
+    font-size: 16px;
+    margin-top: 110px;
+}
+
+.prompt-field::placeholder {
+    color: #B5AFAF;
+    transition: 0.5s;
+}
+
+.prompt-field:focus::placeholder {
+    color: rgba(0, 0, 0, 0);
+}
+
+.prompt-field:focus,
+.prompt-field:active {
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.photo-block {
+    height: 100vh;
+    width: 100%;
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.photo-col {
+    width: 100%;
+    margin-right: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-block .photo-col:last-child {
+    margin-right: 0;
+}
+
+.big-photo {
+    width: 100%;
+    overflow: hidden;
+    flex: 1;
+}
+
+.small-photo {
+    width: 100%;
+    height: 40%;
+    overflow: hidden;
+}
+
+.photo-block .small-photo:nth-child(1),
+.photo-block .small-photo:nth-child(3) {
+    margin-bottom: 20px;
+}
+
+.photo-block .big-photo:nth-child(1),
+.photo-block .big-photo:nth-child(3) {
+    margin-bottom: 20px;
+}
+
+.photo-block img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
