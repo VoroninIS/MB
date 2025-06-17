@@ -31,6 +31,7 @@ def index(request):
     return render(request, "main/index.html", data)
 
 
+#  Обработка запроса
 def schem_generation(request):
     if request.method == "GET":
         form = SchemGenerateForm(request.GET)
@@ -63,6 +64,7 @@ def schem_generation(request):
     return JsonResponse({"error": "Invalid request method"}, status=405)
 
 
+# Удаление файла после отправки результата
 class DeleteFileAfter(FileResponse):
     def __init__(
         self, *args, delete_file, as_attachment=False, filename=None, **kwargs
@@ -77,6 +79,7 @@ class DeleteFileAfter(FileResponse):
         os.remove(self.delete_file)
 
 
+# Параметры для генерации и конвертация облака
 def generate(prompt):
     schem = mcschematic.MCSchematic()
 
@@ -131,6 +134,7 @@ def generate(prompt):
     return schem
 
 
+# Информационные страницы
 def about(request):
     return render(request, "main/about.html")
 
@@ -159,6 +163,7 @@ def privacy(request):
     return render(request, "main/privacy.html")
 
 
+# Словарь с цветами блоков и алгоритмом по нахождению нужного блока
 @lru_cache(maxsize=512)
 def close_color(r, g, b):
     block_dict = {
@@ -168,7 +173,6 @@ def close_color(r, g, b):
         "chiseled_deepslate": (57, 57, 57),
         "diamond_block": (103, 241, 230),
         "light_gray_terracotta": (145, 175, 176),
-        "chiseled_bookshelf_occupied": (99, 80, 69),
         "raw_iron_block": (158, 129, 100),
         "yellow_terracotta": (234, 191, 79),
         "iron_block": (222, 222, 222),
@@ -276,7 +280,6 @@ def close_color(r, g, b):
         "birch_log": (226, 225, 221),
         "gilded_blackstone": (58, 43, 36),
         "polished_blackstone": (51, 47, 55),
-        "redstone_dust_line0": (32, 32, 32),
         "cracked_stone_bricks": (120, 120, 120),
         "polished_granite": (155, 106, 88),
         "redstone_ore": (138, 110, 110),

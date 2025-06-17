@@ -1,6 +1,8 @@
 const qsa = (s, o = document) => o.querySelectorAll(s);
 const qs = (s, o = document) => o.querySelector(s);
 
+
+// Кнопка генерации
 qsa('.round-button').forEach(el => el.addEventListener('mousemove', function(e) {
     const pos = this.getBoundingClientRect();
     const mx = e.clientX - pos.left - pos.width/2; 
@@ -24,6 +26,7 @@ qsa('.round-button').forEach(el => el.addEventListener('mouseleave', function() 
 }));
 
 
+// Курсор
 var cursor = document.querySelector('.cursor');
 var cursorinner = document.querySelector('.cursor2');
 var interactive = document.querySelectorAll('a, input, button, label');

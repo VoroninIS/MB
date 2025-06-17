@@ -10,6 +10,7 @@ from django.conf import settings
 import os
 
 
+# Форма регистрации с выставлением стандартного аватара
 def signup_view(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
@@ -34,6 +35,7 @@ def signup_view(request):
     return render(request, "registration/signup.html", {"form": form})
 
 
+# Форма для изменения аватара
 @login_required
 def profile_view(request):
     if request.method == "POST":
@@ -47,6 +49,7 @@ def profile_view(request):
     return render(request, "registration/profile.html", {"form": form})
 
 
+# Переназначение логики logout
 def custom_logout(request):
     logout(request)
     return redirect("/")
